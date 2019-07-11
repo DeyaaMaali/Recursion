@@ -421,6 +421,27 @@ fibon(n): 1 1 2 3 5 8 13 21
 n:        0 1 2 3 4 5  6  7
 */
 
+function fibon (n)
+{
+	var b = 1;
+	var a = 1;
+	var sum =0;
+	if (n===1 || n===0)
+		return 1;
+	while (n>1)
+	{
+		sum = a + b;
+		b = a;
+		a = sum;
+		n--;
+	}
+	return sum;
+}
+
+console.log(fibon(7));
+console.log(fibon(2));
+console.log(fibon(1));
+console.log(fibon(0));
 
 
 /*
@@ -439,6 +460,22 @@ mirror("car") => "rac"
 mirror("maDrasa") => "asarDam"
 
 */
+console.log("______________________");
+
+function mirror(str)
+{
+	var n = str.length;
+	var s = ""
+	while (n--)
+	{
+		s = s + str[n];
+	}
+	return s;
+}
+
+console.log(mirror("school"));
+console.log(mirror("car"));
+console.log(mirror("maDrasa"));
 
 
 
@@ -461,7 +498,26 @@ mirrorCaseAlso("BaBa") => "AbAb"
 
 */
 
+console.log("______________________");
 
+function mirrorCaseAlso(str)
+{
+	var n = str.length;
+	var s = ""
+	while (n--)
+	{
+		if(str[n]>="a")
+			s = s + str[n].toUpperCase();
+		else
+			s = s + str[n].toLowerCase();
+	}
+	return s;
+
+}
+
+console.log(mirrorCaseAlso("sChOol"));
+console.log(mirrorCaseAlso("THOR"));
+console.log(mirrorCaseAlso("BaBa"));
 
 /*
 4
@@ -483,6 +539,23 @@ repeatChar2("School","S") => 1
 try more case by yourself
 */
 
+console.log("______________________");
+
+function repeatChar2 (str1, str2)
+{
+	var count = 0;
+	while (str1.length !== 0)
+	{
+		if (str1[str1.length-1] === str2)
+			count++;
+		str1 = str1.slice(0,-1);
+	}
+	return count;
+}
+
+console.log(repeatChar2("schOol","o"));
+console.log(repeatChar2("school","a"));
+console.log(repeatChar2("School","S"));
 
 /*
 5
@@ -507,4 +580,44 @@ hi 5 Now Pleas Say Hello To 1, 2, 3 and 4
 hi 6 Now Pleas Say Hello To 1, 2, 3, 4 and 5
 hi 7 Now Pleas Say Hello To 1, 2, 3, 4, 5 and 6
 */
+
+console.log("______________________");
+function welcomeSayHello(n)
+{
+	var m = 1;
+	var str ="";
+	var str2 ="";
+	z=1;
+	x=1;
+	while (m<=n)
+	{
+		if (m===1)
+			str = str + "hi 1  " ;
+		else
+			str = str +"hi " + m + " Now Please Say Hello to "
+		while ( z < m-1)
+			{
+				if (z === x)
+				{
+					str = str.slice(0,-2);
+				 	str = str + " and ";
+				 	x++;
+				}
+				str = str + (z+1) +", ";
+				z++;
+
+			}
+
+
+		m++;
+		z=0;
+		str = str.slice(0,-2) +"\n";
+	}
+
+	return str;
+}
+
+// console.log(welcomeSayHello(3));
+console.log(welcomeSayHello(7));
+// console.log("______________________");
 
